@@ -1,7 +1,7 @@
 <?php
 
 spl_autoload_register(function ($NomeClasse) {
-    $PastaClasses = __DIR__."classes/";
+    $PastaClasses = "classes/";
     $PossiveisPastas = array(
         $PastaClasses,
         $PastaClasses."controllers/",

@@ -1,6 +1,6 @@
 <?php
 require_once("classes/config.php");
-class lojaController {
+class loja {
     
     private $idLoja;
     private $NomeLoja;
@@ -24,7 +24,9 @@ class lojaController {
     private function setDataAtualizacao($dataAtualizacao) {
         $this->dataAtualizacao = $dataAtualizacao;
     }
-
+    public function getIdLoja() {
+        return $this->idLoja;
+    }
     // Função para listar as lojas
     public function listarLojas() {
     }

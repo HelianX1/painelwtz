@@ -9,7 +9,7 @@ class loja {
     private $dataAtualizacao;
 
     // setters
-    public function setIdLoja($idLoja) {
+    private function setIdLoja($idLoja) {
         $this->idLoja = $idLoja;
     }
     private function setNomeLoja($NomeLoja) {

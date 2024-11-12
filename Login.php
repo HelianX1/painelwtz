@@ -23,10 +23,10 @@ require_once("includes/navbar.php");
             </div>
             <div class="col-md-4">
                 <h1>Login</h1>
-                <form action="#" method="post">
+                <form action="classes/controllers/usuarioController.php" method="post">
                     <div class="form-group">
-                        <label for="cnpj">Usuario</label>
-                        <input type="text" class="form-control" id="Usuario" name="Usuario" placeholder="Usuario">
+                        <label for="Usuario">Usuario</label>
+                        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario">
                     </div>
                     <div class="form-group">
                         <label for="Senha">Senha</label>

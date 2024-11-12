@@ -22,6 +22,14 @@ class  usuario extends loja {
         $this->Senha = $Senha;
     }
 
+    // getters
+    public function getUsuario() {
+        return $this->Usuario;
+    }
+    public function getSenha() {
+        return $this->Senha = "admin";
+    }
+
 
 
 

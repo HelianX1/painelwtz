@@ -17,7 +17,6 @@ require_once("includes/navbar.php");
 <body>
     <?php navbarLogado(); ?>
     <div class="container">
-
         <div class="row">
             <div class="col-md-4">
             </div>

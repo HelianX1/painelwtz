@@ -5,7 +5,7 @@ require_once("includes/navbar.php");
 <html lang="pt-br">
 
 <head>
-    <title>listar Produto</title>
+    <title>Excluir Produto</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,8 +16,30 @@ require_once("includes/navbar.php");
 
 <body>
     <?php navbarLogado(); ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+            <br>
+                <h2> Alterar Produto</h2>
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="nome">Nome do Produto</label>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Produto">
+                        <label for="nome">_______________________ ou _________________________</label>
+                        <label for="nome">Codigo do Produto</label>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Codigo do Produto">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                </form>
+                
+                <div class="col-md-4">
+                </div>
+            </div>
+        </div>
+    </div>
 
-       
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

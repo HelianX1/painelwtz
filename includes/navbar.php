@@ -40,6 +40,9 @@ function navbarLogado()
                 <a class="nav-link" href="/painelwtz/listarProduto.php">Listar Produtos</a>
             </li>
             <li class="nav-item ">
+                <a class="nav-link" href="/painelwtz/excluirProduto.php">Excluir Produtos</a>
+            </li>
+            <li class="nav-item ">
                 <a class="nav-link" href="/painelwtz/cadastarFuncionario.php">Cadastar Funcionario</a>
             </li>
         </ul>

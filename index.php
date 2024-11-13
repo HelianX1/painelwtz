@@ -1,5 +1,7 @@
 <?php
 require_once("includes/navbar.php");
+require_once("includes/sessao.php");
+session_destroy()
 ?>
 <!doctype html>
 <html lang="pt-br">

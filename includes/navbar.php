@@ -20,7 +20,7 @@ function navbar()
     </nav>';
 }
 
-function navbarLogado()
+function navbarLogadoADM()
 {
     echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="/painelwtz/index.php">My bot</a>
@@ -44,6 +44,9 @@ function navbarLogado()
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="/painelwtz/cadastarFuncionario.php">Cadastar Funcionario</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="/painelwtz/index.php">Sair</a>
             </li>
         </ul>
     </div>

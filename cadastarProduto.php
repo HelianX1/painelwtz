@@ -1,5 +1,7 @@
 <?php
 require_once("includes/navbar.php");
+require_once("includes/sessao.php");
+verificarSessao();
 ?>
 <!doctype html>
 <html lang="en">
@@ -15,7 +17,7 @@ require_once("includes/navbar.php");
 </head>
 
 <body>
-    <?php navbarLogado(); ?>
+    <?php navbarLogadoADM(); ?>
     <div class="container">
 
         <div class="row">

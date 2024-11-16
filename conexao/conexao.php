@@ -20,20 +20,6 @@ try {
 }
 try{
 
-    // SQL para criar a tabela contador
-    $sql_contador = "
-        CREATE TABLE IF NOT EXISTS contador (
-            id_contador INT(11) NOT NULL AUTO_INCREMENT,
-            id_palavra_chave INT(11) NOT NULL,
-            quantidade INT(11) DEFAULT 0,
-            data_atualizacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-            PRIMARY KEY (id_contador),
-            KEY id_palavra_chave (id_palavra_chave),
-            CONSTRAINT contador_ibfk_1 FOREIGN KEY (id_palavra_chave) REFERENCES palavras_chave (id_palavra_chave)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    ";
-    $pdo->exec($sql_contador);
-
     // SQL para criar a tabela lojas
     $sql_lojas = "
         CREATE TABLE IF NOT EXISTS lojas (
@@ -88,7 +74,6 @@ try{
 
 
    }   catch (PDOException $e) {
+    echo $e->getMessage();
 
-}
-
-?>
+}?>

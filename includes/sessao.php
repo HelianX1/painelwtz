@@ -67,4 +67,15 @@ function destruirSessao()
     session_destroy();
     header("Location: /painelwtz/login.php");
 }
+
+// messagem 
+function mensagem($mensagem)
+{   
+
+    $_SESSION['mensagem'] = $mensagem;
+    if (isset($_SESSION['mensagem'])) {
+        echo $_SESSION['mensagem'];
+    }
+     
+}
 ?>

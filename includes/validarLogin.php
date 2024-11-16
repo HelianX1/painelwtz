@@ -6,7 +6,7 @@ if (isset($_POST['usuario']) && isset($_POST['senha'])) {
     $usuario = $_POST['usuario'];
     $senha = $_POST['senha'];
     $senha = hash('sha256', $senha);
-    $stmt_usuarios = $pdo->prepare("SELECT usuarios.nome FROM usuarios WHERE usuarios.nome = '$usuario'");
+    $stmt_usuarios = $pdo->prepare("SELECT usuarios.nome FROM usuarios WHERE usuarios.login = '$usuario'");
     $stmt_usuarios->execute();
     $dados = $stmt_usuarios->fetch(PDO::FETCH_ASSOC);
     var_dump($dados);
@@ -14,7 +14,6 @@ if (isset($_POST['usuario']) && isset($_POST['senha'])) {
     if ($dados == false) {
         $stmt_usuarios = $pdo->prepare("SELECT * FROM lojas WHERE lojas.nome_fantasia = '$usuario' AND lojas.senha = '$senha' or lojas.cnpj_cpf = '$usuario' AND lojas.senha = '$senha' ");
         $stmt_usuarios->execute();
-        echo var_dump($stmt_usuarios);
         while($dados = $stmt_usuarios->fetch(PDO::FETCH_ASSOC)){
             $id_loja = $dados['id_loja'];
             $nome_fantasia = $dados['nome_fantasia'];
@@ -35,11 +34,10 @@ if (isset($_POST['usuario']) && isset($_POST['senha'])) {
     }
     
     if ($dados !== false) {
-        $stmt_usuarios = $pdo->prepare("SELECT * FROM usuarios WHERE usuarios.nome = '$usuario' AND usuarios.senha = '$senha'");
+        $stmt_usuarios = $pdo->prepare("SELECT * FROM usuarios WHERE usuarios.login = '$usuario' AND usuarios.senha = '$senha'");
         $stmt_usuarios->execute();
     while ($dados = $stmt_usuarios->fetch(PDO::FETCH_ASSOC)){
-        var_dump($dados);
-        $id_usuario = $dados['id_usuario'];
+        var_dump($dados);        $id_usuario = $dados['id_usuario'];
         echo $id_usuario;
         $nome = $dados['nome'];
         $login = $dados['login'];
@@ -61,7 +59,7 @@ if (isset($_POST['usuario']) && isset($_POST['senha'])) {
     
     }
     else {
-        echo "Usuário ou senha inválidos";
+         mensagem("Usuário ou senha inválidos");
     }
 
 

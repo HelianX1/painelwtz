@@ -26,7 +26,7 @@ verificarSessao();
             <div class="col-md-4">
                 <br>
                 <h2>Cadastre Funcionario</h2>
-                <form action="#" method="post">
+                <form action="includes/cadastarFuncionario.php" method="post">
                     <div class="form-group">
                         <label for="nome">Nome</label>
                         <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">

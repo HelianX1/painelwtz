@@ -5,7 +5,6 @@ require_once("includes/sessao.php");
 if (isset($_SESSION['nome'])) {
     destruirSessao();
 } else {
-    
 }
 ?>
 <!doctype html>
@@ -24,7 +23,7 @@ if (isset($_SESSION['nome'])) {
 <body>
     <?php navbar(); ?>
     <div class="container">
-    
+
         <div class="row">
             <div class="col-md-4">
             </div>
@@ -32,15 +31,25 @@ if (isset($_SESSION['nome'])) {
                 <h1>Login</h1>
                 <form action="/painelwtz/includes/validarLogin.php" method="post">
                     <div class="form-group">
+
                         <label for="Usuario">Usuario</label>
-                        
+
                         <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario">
                     </div>
                     <div class="form-group">
                         <label for="Senha">Senha</label>
                         <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
                     </div>
+                    <?php if (isset($_SESSION['mensagem'])) {
+                        echo '<div class="alert alert-danger" role="alert">
+                        ' . $_SESSION['mensagem'] . '
+                        </div>';
+                    }
+                    ?>
+
                     <button type="submit" class="btn btn-primary">Cadastrar</button>
+
+
                 </form>
                 <div class="col-md-4">
                 </div>

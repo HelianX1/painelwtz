@@ -1,7 +1,12 @@
 <?php
 require_once("includes/navbar.php");
 require_once("includes/sessao.php");
-session_destroy()
+
+if (isset($_SESSION['nome'])) {
+    destruirSessao();
+} else {
+    
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -19,7 +24,7 @@ session_destroy()
 <body>
     <?php navbar(); ?>
     <div class="container">
-
+    
         <div class="row">
             <div class="col-md-4">
             </div>
@@ -28,6 +33,7 @@ session_destroy()
                 <form action="/painelwtz/includes/validarLogin.php" method="post">
                     <div class="form-group">
                         <label for="Usuario">Usuario</label>
+                        
                         <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario">
                     </div>
                     <div class="form-group">

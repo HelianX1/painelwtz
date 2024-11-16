@@ -14,19 +14,11 @@ try {
     $pdo->exec($sql);
     $pdo->exec("USE PAINELDB;");
 
-    echo "Banco de dados PAINELDB criado com sucesso!";
+
 } catch (PDOException $e) {
-    echo "Erro ao criar o banco de dados: " . $e->getMessage();
+
 }
 try{
-$sql_palavras_chave = "
-        CREATE TABLE IF NOT EXISTS palavras_chave (
-            id_palavra_chave INT(11) NOT NULL AUTO_INCREMENT,
-            palavra VARCHAR(255) NOT NULL,
-            PRIMARY KEY (id_palavra_chave)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-    ";
-    $pdo->exec($sql_palavras_chave);
 
     // SQL para criar a tabela contador
     $sql_contador = "
@@ -50,6 +42,7 @@ $sql_palavras_chave = "
             cnpj_cpf VARCHAR(14) NOT NULL,
             data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
             senha VARCHAR(255) NOT NULL,
+            cargo varchar(255) DEFAULT 'admin',
             PRIMARY KEY (id_loja),
             UNIQUE KEY cnpj_cpf (cnpj_cpf)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -92,10 +85,10 @@ $sql_palavras_chave = "
     ";
     $pdo->exec($sql_produtos);
 
-    echo "Tabelas criadas com sucesso!";
+
 
    }   catch (PDOException $e) {
-    echo "Erro ao criar tabelas: " . $e->getMessage();
+
 }
 
 ?>

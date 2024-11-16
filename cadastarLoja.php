@@ -24,14 +24,14 @@ require_once("includes/navbar.php");
             <div class="col-md-4">
             <br>
                 <h2>Cadastre sua Loja</h2>
-                <form action="#" method="post">
+                <form action="includes/cadastarLoja.php" method="post">
                     <div class="form-group">
                         <label for="nome">Nome da Loja</label>
                         <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome da Loja">
                     </div>
                     <div class="form-group">
                         <label for="cnpj">CNPJ</label>
-                        <input type="text" class="form-control" id="cnpj" name="cnpj" placeholder="CNPJ">
+                        <input type="text" class="form-control" id="cnpj" name="cnpj" placeholder="CNPJ" maxlength="14">
                     </div>
                     <div class="form-group">
                         <label for="Senha">Senha</label>

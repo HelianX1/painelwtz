@@ -17,7 +17,7 @@ verificarSessao();
 </head>
 
 <body>
-    <?php navbarLogadoADM(); ?>
+    <?php verificarCargo(); ?>
     <div class="container">
 
         <div class="row">

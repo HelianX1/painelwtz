@@ -26,14 +26,14 @@ verificarSessao();
             <div class="col-md-4">
                 <br>
                 <h2> Cadastar Produto</h2>
-                <form action="#" method="post">
+                <form action="/painelwtz/includes/cadastraProduto.php" method="post">
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Produto</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+                        <textarea class="form-control" name="texto" id="exampleFormControlTextarea1" rows="10"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Palavras Chaves</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                        <textarea class="form-control" name="palavraChave" id="exampleFormControlTextarea1"  rows="2"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Cadastrar</button>
                 </form>

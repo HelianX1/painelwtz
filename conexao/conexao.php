@@ -2,11 +2,12 @@
 
 $host = 'localhost';
 $user = 'root';
+$port = '3305';
 $password = '';
 
 try {
     // Conectar ao MySQL
-    $pdo = new PDO("mysql:host=$host", $user, $password);
+    $pdo = new PDO("mysql:host=$host;port=$port", $user, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Criar o banco de dados

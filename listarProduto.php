@@ -18,6 +18,58 @@ verificarSessao();
 
 <body>
     <?php verificarCargo(); ?>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <br>
+                <h2> Listar Produto</h2>
+                <form action="/painelwtz/includes/listarProduto.php" method="post">
+                    <div class="form-group">
+                    <label for="nome">Nome do Produto</label>
+                    <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Produto">
+                </div>
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-12">
+            <br>
+            <h2> Listar Produto</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Palavra Chave</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Produto 1</td>
+                        <td>Palavra Chave 1</td>
+                    </tr>
+                    <tr>
+                        <td>Produto 2</td>
+                        <td>Palavra Chave 2</td>
+                    </tr>
+                    <tr>
+                        <td>Produto 3</td>
+                        <td>Palavra Chave 3</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
 
        
 

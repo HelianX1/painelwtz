@@ -35,7 +35,7 @@ if (isset($_POST['usuario']) && isset($_POST['senha'])) {
                 $dados['data_criacao']
             );
             
-            //header("Location: /painelwtz/listarProduto.php");
+            header("Location: /painelwtz/listarProduto.php");
         }
     }elseif ($dados !== false) {
         echo "3";

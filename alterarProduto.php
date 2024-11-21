@@ -48,11 +48,17 @@ verificarSessao();
                     <div class="form-group">
                     <br>
                         <label for="exampleFormControlTextarea1">Produto</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"><?=$texto_do_produto?></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"><?php
+                         if(isset($texto_do_produto)){
+                           echo $texto_do_produto;
+                        }?></textarea>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Palavras Chaves</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"><?=$palavra_chave?></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"><?php
+                         if(isset($palavra_chave)){
+                           echo $palavra_chave;
+                        }?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Alterar</button>
                 </form>

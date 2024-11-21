@@ -3,15 +3,17 @@ require_once("../conexao/conexao.php");
 require_once("sessao.php");
 
 if (isset($_POST['usuario']) && isset($_POST['senha'])) {
+    echo "1";
     $usuario = $_POST['usuario'];
     $senha = $_POST['senha'];
     $senha = hash('sha256', $senha);
     $stmt_usuarios = $pdo->prepare("SELECT usuarios.nome FROM usuarios WHERE usuarios.login = '$usuario'");
     $stmt_usuarios->execute();
     $dados = $stmt_usuarios->fetch(PDO::FETCH_ASSOC);
-    var_dump($dados);
+    
     
     if ($dados == false) {
+        echo "2";
         $stmt_usuarios = $pdo->prepare("SELECT * FROM lojas WHERE lojas.nome_fantasia = '$usuario' AND lojas.senha = '$senha' or lojas.cnpj_cpf = '$usuario' AND lojas.senha = '$senha' ");
         $stmt_usuarios->execute();
         while($dados = $stmt_usuarios->fetch(PDO::FETCH_ASSOC)){
@@ -29,16 +31,18 @@ if (isset($_POST['usuario']) && isset($_POST['senha'])) {
                 $dados['data_criacao']
             );
             
-            header("Location: /painelwtz/listarProduto.php");
+            //header("Location: /painelwtz/listarProduto.php");
         }
-    }
-    
-    if ($dados !== false) {
+    }elseif ($dados !== false) {
+        echo "3";
         $stmt_usuarios = $pdo->prepare("SELECT * FROM usuarios WHERE usuarios.login = '$usuario' AND usuarios.senha = '$senha'");
         $stmt_usuarios->execute();
+        if($stmt_usuarios->rowCount() == 0){
+            mensagem("Usuario ou senha incorretos");
+            header("Location: /painelwtz/login.php");
+        }
     while ($dados = $stmt_usuarios->fetch(PDO::FETCH_ASSOC)){
-        var_dump($dados);        $id_usuario = $dados['id_usuario'];
-        echo $id_usuario;
+        $id_usuario = $dados['id_usuario'];
         $nome = $dados['nome'];
         $login = $dados['login'];
         $senha = $dados['senha'];
@@ -58,10 +62,6 @@ if (isset($_POST['usuario']) && isset($_POST['senha'])) {
     }
     
     }
-    else {
-         mensagem("Usuário ou senha inválidos");
-    }
-
 
 }
 

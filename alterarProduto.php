@@ -1,6 +1,15 @@
 <?php
 require_once("includes/navbar.php");
 require_once("includes/sessao.php");
+
+if (isset($_GET['texto_do_produto']) && isset($_GET['palavra_chave'])) {
+    $texto_do_produto = $_GET['texto_do_produto'];
+    $palavra_chave = $_GET['palavra_chave'];
+}
+if (isset($_GET['erro'])) {
+    $erro = $_GET['erro'];
+    $erro = "<div class='alert alert-danger' role='alert'>$erro</div>";
+}
 verificarSessao();
 ?>
 <!doctype html>
@@ -25,22 +34,25 @@ verificarSessao();
             <div class="col-md-4">
             <br>
                 <h2> Alterar Produto</h2>
-                <form action="#" method="post">
+                <form action="includes/alterarProduto.php" method="post">
                     <div class="form-group">
                         <label for="nome">Nome do Produto</label>
                         <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Produto">
                     </div>
+                    <?php if(isset($erro)){
+                        echo $erro;
+                    }?>
                     <button type="submit" class="btn btn-primary">Buscar</button>
                 </form>
                 <form action="#" method="post">
                     <div class="form-group">
                     <br>
                         <label for="exampleFormControlTextarea1">Produto</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"><?=$texto_do_produto?></textarea>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Palavras Chaves</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"><?=$palavra_chave?></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Alterar</button>
                 </form>

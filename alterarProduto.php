@@ -44,7 +44,7 @@ verificarSessao();
                 <form action="includes/BuscarExibir.php" method="post">
                     <div class="form-group">
                         <label for="nome">Nome do Produto</label>
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Produto">
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Produto"required>
                     </div>
                     <?php if(isset($erro)){
                         echo $erro;
@@ -55,14 +55,14 @@ verificarSessao();
                     <div class="form-group">
                     <br>
                         <label for="texto_do_produto">Produto</label>
-                        <textarea class="form-control" name="texto_do_produto" id="texto_do_produto" rows="10"><?php
+                        <textarea class="form-control" name="texto_do_produto" id="texto_do_produto" rows="10"required><?php
                          if(isset($texto_do_produto)){
                            echo $texto_do_produto;
                         }?></textarea>
                     </div>
                     <div class="form-group">
                         <label for="palavra_chave">Palavras Chaves</label>
-                        <textarea class="form-control" name="palavra_chave" id="palavra_chave" rows="2"><?php
+                        <textarea class="form-control" name="palavra_chave" id="palavra_chave" rows="2"required><?php
                          if(isset($palavra_chave)){
                            echo $palavra_chave;
                         }?></textarea>

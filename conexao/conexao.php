@@ -57,7 +57,7 @@ try{
     $sql_produtos = "
         CREATE TABLE IF NOT EXISTS produtos (
             id_produto INT(11) NOT NULL AUTO_INCREMENT,
-            data_time DATETIME DEFAULT NULL,
+            data_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
             foto_produto TEXT DEFAULT NULL,
             texto_do_produto TEXT DEFAULT NULL,
             id_usuario INT(11) DEFAULT NULL,

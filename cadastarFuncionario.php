@@ -29,15 +29,15 @@ verificarSessao();
                 <form action="/painelwtz/includes/cadastarFuncionario.php" method="post">
                     <div class="form-group">
                         <label for="nome">Nome</label>
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome"required>
                     </div>
                     <div class="form-group">
                         <label for="Username">Username</label>
-                        <input type="text" class="form-control" id="Username" name="Username" placeholder="Username">
+                        <input type="text" class="form-control" id="Username" name="Username" placeholder="Username"required>
                     </div>
                     <div class="form-group">
                         <label for="Senha">Senha</label>
-                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
+                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha"required>
                     </div>
                     <button type="submit" class="btn btn-primary">Cadastrar</button>
                 </form>

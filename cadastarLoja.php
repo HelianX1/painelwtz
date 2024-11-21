@@ -27,15 +27,15 @@ require_once("includes/navbar.php");
                 <form action="includes/cadastarLoja.php" method="post">
                     <div class="form-group">
                         <label for="nome">Nome da Loja</label>
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome da Loja">
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome da Loja"required>
                     </div>
                     <div class="form-group">
                         <label for="cnpj">CNPJ</label>
-                        <input type="text" class="form-control" id="cnpj" name="cnpj" placeholder="CNPJ" maxlength="14">
+                        <input type="text" class="form-control" id="cnpj" name="cnpj" placeholder="CNPJ" maxlength="14"required>
                     </div>
                     <div class="form-group">
                         <label for="Senha">Senha</label>
-                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
+                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha"required>
                     </div>
                     <button type="submit" class="btn btn-primary">Cadastrar</button>
                 </form>

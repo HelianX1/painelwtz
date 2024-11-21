@@ -36,27 +36,27 @@ verificarSessao();
                         </tr>
                     </thead>
                     <tbody>
-                    <?php
-require_once("conexao/conexao.php");
-require_once("includes/sessao.php");
-$stmt = $pdo->prepare("SELECT * FROM produtos , usuarios WHERE  produtos.id_usuario = usuarios.id_usuario and  produtos.id_loja = :id_loja");
-$stmt->bindParam(':id_loja', $_SESSION['id_loja']);
-$stmt->execute();
-$dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
-if ($dados) {
-    foreach ($dados as $dado) {
-        $palavra_chave = $dado['palavra_chave'];
-        $texto_do_produto = $dado['texto_do_produto'];
-        $texto_do_produto = wordwrap($texto_do_produto,50, "<br>");
-        $palavra_chave = wordwrap($palavra_chave,50, "<br>");
-        echo "<tr><td>" . $dado['id_produto'] . "</td><td>" .$texto_do_produto  . "</td><td >" .$palavra_chave."</td><td>". $dado['nome'] . " : ".$dado['data_time']."</td></tr>";
-    }
-} else {
-    echo "<tr>";
-    echo "<td colspan='4'>Nenhum produto encontrado</td>";
-    echo "</tr>";
-}
-?>
+                        <?php
+                        require_once("conexao/conexao.php");
+                        require_once("includes/sessao.php");
+                        $id_loja =  $_SESSION['id_loja'] ;
+                        $stmt = $pdo->prepare("SELECT * FROM produtos , usuarios WHERE  produtos.id_usuario = usuarios.id_usuario  or usuarios.id_loja = produtos.id_loja  and produtos.id_loja = 2");
+                        $stmt->execute();
+                        $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        if ($dados) {
+                            foreach ($dados as $dado) {
+                                $palavra_chave = $dado['palavra_chave'];
+                                $texto_do_produto = $dado['texto_do_produto'];
+                                $texto_do_produto = wordwrap($texto_do_produto, 50, "<br>");
+                                $palavra_chave = wordwrap($palavra_chave, 50, "<br>");
+                                echo "<tr><td>" . $dado['id_produto'] . "</td><td>" . $texto_do_produto  . "</td><td >" . $palavra_chave . "</td><td>" . $dado['nome'] . " : " . $dado['data_time'] . "</td></tr>";
+                            }
+                        } else {
+                            echo "<tr>";
+                            echo "<td colspan='4'>Nenhum produto encontrado</td>";
+                            echo "</tr>";
+                        }
+                        ?>
                     </tbody>
                 </table>
 

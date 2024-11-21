@@ -30,11 +30,11 @@ verificarSessao();
                 <form action="/painelwtz/includes/cadastraProduto.php" method="post">
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Produto</label>
-                        <textarea class="form-control" name="texto" id="exampleFormControlTextarea1" rows="10"></textarea>
+                        <textarea class="form-control" name="texto" id="exampleFormControlTextarea1" rows="10"required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1">Palavras Chaves</label>
-                        <textarea class="form-control" name="palavraChave" id="exampleFormControlTextarea1"  rows="2"></textarea>
+                        <textarea class="form-control" name="palavraChave" id="exampleFormControlTextarea1"  rows="2"required></textarea>
                     </div>
                     <?php
                     if (isset($_GET['alertaCadastro'])) {

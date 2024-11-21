@@ -14,6 +14,10 @@ if (isset($_POST['usuario']) && isset($_POST['senha'])) {
     
     if ($dados == false) {
         echo "2";
+        if($stmt_usuarios->rowCount() == 0){
+            mensagem("Usuario ou senha incorretos");
+            header("Location: /painelwtz/login.php");
+        }
         $stmt_usuarios = $pdo->prepare("SELECT * FROM lojas WHERE lojas.nome_fantasia = '$usuario' AND lojas.senha = '$senha' or lojas.cnpj_cpf = '$usuario' AND lojas.senha = '$senha' ");
         $stmt_usuarios->execute();
         while($dados = $stmt_usuarios->fetch(PDO::FETCH_ASSOC)){

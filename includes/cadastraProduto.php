@@ -18,8 +18,8 @@ if(isset($_POST['texto']) && isset($_POST['palavraChave'])){
     $stmt->bindParam(':id_usuario', $id_usuario);
     $stmt->bindParam(':id_loja', $id_loja);
     $stmt->execute();
-    header("Location: /painelwtz/cadastarProduto.php");
-    mensagem("Produto cadastrado com sucesso");
+    header("Location: /painelwtz/cadastarProduto.php?alertaCadastro=Produto cadastrado com sucesso");
+    
 
 }
 ?>

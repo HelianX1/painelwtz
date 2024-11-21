@@ -1,6 +1,7 @@
 <?php
 require_once("includes/navbar.php");
 require_once("includes/sessao.php");
+
 verificarSessao();
 ?>
 <!doctype html>
@@ -35,7 +36,17 @@ verificarSessao();
                         <label for="exampleFormControlTextarea1">Palavras Chaves</label>
                         <textarea class="form-control" name="palavraChave" id="exampleFormControlTextarea1"  rows="2"></textarea>
                     </div>
+                    <?php
+                    if (isset($_GET['alertaCadastro'])) {
+                        echo '
+                        <div class="alert alert-success" role="alert">
+                        '.$_GET["alertaCadastro"].'
+                      </div>';
+                    }
+                    ?>
                     <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    
+
                 </form>
                 <div class="col-md-4">
                 </div>

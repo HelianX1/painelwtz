@@ -2,7 +2,7 @@
 
 $host = 'localhost';
 $user = 'root';
-$port = '3305';
+$port = '3306';
 $password = '';
 
 try {

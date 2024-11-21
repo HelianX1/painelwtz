@@ -1,6 +1,12 @@
 <?php
 require_once("includes/navbar.php");
 require_once("includes/sessao.php");
+if (isset($_GET['textoProduto']) && isset($_GET['palaChave']) && isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $textoProduto = $_GET['textoProduto'];
+    $palaChave = $_GET['palaChave'];
+}
+
 verificarSessao();
 ?>
 <!doctype html>
@@ -25,17 +31,38 @@ verificarSessao();
             <div class="col-md-4">
             <br>
                 <h2> Alterar Produto</h2>
-                <form action="#" method="post">
+                <form action="includes/excluirProduto.php" method="post">
                     <div class="form-group">
                         <label for="nome">Nome do Produto</label>
                         <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Produto">
                         <label for="nome">_______________________ ou _________________________</label>
                         <label for="nome">Codigo do Produto</label>
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Codigo do Produto">
+                        <input type="text" class="form-control" id="id" name="id" placeholder="Codigo do Produto">
+                        <?php
+                        if(isset($_GET['produto_excluido'])){
+                            $produto_excluido = $_GET['produto_excluido'];
+                           echo '<br><div class="alert alert-success" role="alert">'.$produto_excluido .'</div>';
+                        }
+                        ?>
                     </div>
                     <button type="submit" class="btn btn-primary">Buscar</button>
                 </form>
-                
+                <?php
+                if (isset($textoProduto) && isset($palaChave)) {
+
+                    echo "<br>";
+                    echo "<h3>Produto encontrado</h3>";
+                    echo '<div class="alert alert-danger" role="alert">';
+                    echo "<p>id Produto : $id</p>";
+                    echo "<p>Texto do Produto: $textoProduto</p>";
+                    echo "<p>Palavra Chave: $palaChave</p>";
+                    echo "<form action='includes/excluirProduto.php?id_produto=$id' method='post'>";
+                    echo "<input type='hidden' name='id' value='$palaChave'>";
+                    echo "<button type='submit' class='btn btn-danger'>Excluir</button>";
+                    echo "</form>";
+                    echo '</div>';
+                }
+                ?>
                 <div class="col-md-4">
                 </div>
             </div>

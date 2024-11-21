@@ -1,32 +1,29 @@
 <?php
 require_once("../conexao/conexao.php");
 require_once("sessao.php");
+require_once("buscarExibir.php");
 
-if (isset($_POST['nome'])) {
-    $nome = '%' . $_POST['nome'] . '%';
-    $id_loja = $_SESSION['id_loja'];
+if (isset($_POST['texto_do_produto'], $_POST['palavra_chave'], $_GET['id_produto'])) {
+    $texto_do_produto = $_POST['texto_do_produto'];
+    $palavra_chave = $_POST['palavra_chave'];
+    $id_produtos = $_GET['id_produto'];
 
-    $sql = "SELECT texto_do_produto, palavra_chave 
-            FROM produtos 
-            WHERE id_loja = :id_loja AND palavra_chave LIKE :nome 
-            LIMIT 1";
+    $sql = "UPDATE produtos SET texto_do_produto = :texto_do_produto, palavra_chave = :palavra_chave WHERE id_produto = :id_produto";
     $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(':id_loja', $id_loja, PDO::PARAM_INT);
-    $stmt->bindParam(':nome', $nome, PDO::PARAM_STR);
-    $stmt->execute();
 
-    // Verifica se há resultados
-    $dados = $stmt->fetch(PDO::FETCH_ASSOC);
-    if (!$dados) {
-        $erro = urlencode("Produto não encontrado");
-        header("Location: /painelwtz/alterarProduto.php?erro=$erro");
-        exit;
+    // Bind dos parâmetros
+    $stmt->bindParam(':texto_do_produto', $texto_do_produto, PDO::PARAM_STR);
+    $stmt->bindParam(':palavra_chave', $palavra_chave, PDO::PARAM_STR);
+    $stmt->bindParam(':id_produto', $id_produtos, PDO::PARAM_INT);
+
+    // Executa a consulta
+    if ($stmt->execute()) {
+        header("Location: /painelwtz/alterarProduto.php?sucesso=Produto atualizado com sucesso.");
     } else {
-        // Extrai os dados retornados
-        $texto_do_produto = urlencode($dados['texto_do_produto']);
-        $palavra_chave = urlencode($dados['palavra_chave']);
-
-        header("Location: /painelwtz/alterarProduto.php?texto_do_produto=$texto_do_produto&palavra_chave=$palavra_chave");
-        exit;
+        header("Location: /painelwtz/alterarProduto.php?erro=Erro ao atualizar o produto.");
     }
+
+} else {
+    header("Location: /painelwtz/alterarProduto.php?erro=Erro ao atualizar o produto.");
 }
+?>

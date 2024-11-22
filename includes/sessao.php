@@ -60,7 +60,15 @@ function verificarSessao()
         header("Location: /painelwtz/login.php");
     }
 }
-
+function verificarSessaosql()
+{
+    if (!isset($_SESSION['cargo'])) {
+        header("Location: /painelwtz/login.php");
+    }
+    if ($_SESSION['cargo'] != 'admin') {
+        header("Location: /painelwtz/login.php");
+    }
+}
 // destruir sessão
 function destruirSessao()
 {

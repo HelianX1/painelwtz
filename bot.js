@@ -28,15 +28,8 @@ client.on('message', message => {
     
     request('http://localhost/painelwtz/api.php?id_loja=2&produto=' + message.body, function (error, response, body) {
  
-        if (body.includes('440')) {
-            console.log('Produto não encontrado');
-            
-        } else{
-            console.log('Produto encontrado');
             message.reply(body.trim());
-        }
-    }
-    );
+    });
 });
 
 

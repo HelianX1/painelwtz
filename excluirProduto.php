@@ -10,7 +10,7 @@ if (isset($_GET['textoProduto']) && isset($_GET['palaChave']) && isset($_GET['id
 verificarSessao();
 ?>
 <!doctype html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <title>Excluir Produto</title>

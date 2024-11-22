@@ -8,7 +8,7 @@ if (isset($_SESSION['nome'])) {
 }
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <title>Login</title>

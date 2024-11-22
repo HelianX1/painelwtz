@@ -2,7 +2,7 @@
 require_once("includes/navbar.php");
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <title>Cadastre sua Loja</title>

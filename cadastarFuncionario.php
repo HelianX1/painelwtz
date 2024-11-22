@@ -4,7 +4,7 @@ require_once("includes/sessao.php");
 verificarSessao();
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <title>Cadastre Funcionario</title>

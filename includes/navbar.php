@@ -1,5 +1,5 @@
 <?php
-
+require_once("includes/sessao.php");
 function verificarCargo()
 {
     if ($_SESSION['cargo'] == 'admin') {
@@ -32,6 +32,8 @@ function navbarLogado()
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="/painelwtz/logout.php">Sair</a>
+                '.$_SESSION['id_loja'].'
+
             </li>
         </ul>
     </div>
@@ -61,7 +63,7 @@ function navbar()
 function navbarLogadoADM()
 {
     echo '<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/painelwtz/index.php">My bot</a>
+    <a class="navbar-brand" href="/painelwtz/index.php">My bot'.$_SESSION['id_loja'].'</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
         aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -84,8 +86,10 @@ function navbarLogadoADM()
                 <a class="nav-link" href="/painelwtz/cadastarFuncionario.php">Cadastar Funcionario</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="/painelwtz/logout.php">Sair</a>
+                <a class="nav-link" href="/painelwtz/logout.php">Sair </a>
+                
             </li>
+            
         </ul>
     </div>
     </nav>';

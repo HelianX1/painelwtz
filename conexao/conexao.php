@@ -1,9 +1,9 @@
 <?php
 
-$host = 'localhost';
-$user = 'root';
+$host = '145.223.79.56';
+$user = 'helian';
 $port = '3306';
-$password = '';
+$password = '12345678';
 
 try {
     // Conectar ao MySQL

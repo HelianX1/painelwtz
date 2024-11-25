@@ -29,26 +29,41 @@ verificarSessao();
             <div class="col-md-4">
             </div>
             <div class="col-md-4">
-            <br>
+                <br>
                 <h2> Alterar Produto</h2>
                 <form action="includes/excluirProduto.php" method="post">
                     <div class="form-group">
                         <label for="nome">Nome do Produto</label>
                         <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Produto">
-                        <label for="nome">_______________________ ou _________________________</label>
-                        <label for="nome">Codigo do Produto</label>
-                        <input type="text" class="form-control" id="id" name="id" placeholder="Codigo do Produto">
-                        <?php
-                        if(isset($_GET['produto_excluido'])){
-                            $produto_excluido = $_GET['produto_excluido'];
-                           echo '<br><div class="alert alert-success" role="alert">'.$produto_excluido .'</div>';
-                        }
-                        ?>
                     </div>
                     <button type="submit" class="btn btn-primary">Buscar</button>
+                    
+                </form>
+
+
+                <form action="includes/excluirProduto.php" method="post">
+                <br>
+                    <div class="form-group">
+                        <label for="nome">Codigo do Produto</label>
+                        <input type="text" class="form-control" id="id" name="id" placeholder="Codigo do Produto">
+                        <br>
+                        <button type="submit" class="btn btn-primary">Buscar</button>
                 </form>
                 <?php
-                if (isset($textoProduto) && isset($palaChave)) {
+                if (isset($_GET['erro'])) {
+                    $erro = $_GET['erro'];
+                    echo '<br><div class="alert alert-danger" role="alert">' . $erro . '</div>';
+                }
+                ?>
+
+                <?php
+                if (isset($_GET['produto_excluido'])) {
+                    $produto_excluido = $_GET['produto_excluido'];
+                    echo '<br><div class="alert alert-success" role="alert">' . $produto_excluido . '</div>';
+                }
+                ?>
+                <?php
+                if (isset($textoProduto) or isset($palaChave)) {
 
                     echo "<br>";
                     echo "<h3>Produto encontrado</h3>";

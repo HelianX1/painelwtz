@@ -39,37 +39,40 @@ verificarSessao();
             <div class="col-md-4">
             </div>
             <div class="col-md-4">
-            <br>
+                <br>
                 <h2> Alterar Produto</h2>
                 <form action="includes/BuscarExibir.php" method="post">
                     <div class="form-group">
                         <label for="nome">Nome do Produto</label>
-                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Produto"required>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome do Produto" required>
                     </div>
-                    <?php if(isset($erro)){
+                    <?php if (isset($erro)) {
                         echo $erro;
-                    }?>
+                    } ?>
                     <button type="submit" class="btn btn-primary">Buscar</button>
                 </form>
-                <form action="includes/alterarProduto.php?id_produto=<?=$id_produto?>" method="post">
+                <form action="includes/alterarProduto.php" method="post">
                     <div class="form-group">
-                    <br>
+                        <br>
+                        <input type="text" class="form-control" id="id_produto" name="id_produto" value="<?php if (isset($id_produto)) {
+                                                                                                                echo $id_produto;
+                                                                                                            } ?>">
                         <label for="texto_do_produto">Produto</label>
-                        <textarea class="form-control" name="texto_do_produto" id="texto_do_produto" rows="10"required><?php
-                         if(isset($texto_do_produto)){
-                           echo $texto_do_produto;
-                        }?></textarea>
+                        <textarea class="form-control" name="texto_do_produto" id="texto_do_produto" rows="10" required><?php
+                                                                                                                        if (isset($texto_do_produto)) {
+                                                                                                                            echo $texto_do_produto;
+                                                                                                                        } ?></textarea>
                     </div>
                     <div class="form-group">
                         <label for="palavra_chave">Palavras Chaves</label>
-                        <textarea class="form-control" name="palavra_chave" id="palavra_chave" rows="2"required><?php
-                         if(isset($palavra_chave)){
-                           echo $palavra_chave;
-                        }?></textarea>
+                        <textarea class="form-control" name="palavra_chave" id="palavra_chave" rows="2" required><?php
+                                                                                                                    if (isset($palavra_chave)) {
+                                                                                                                        echo $palavra_chave;
+                                                                                                                    } ?></textarea>
                     </div>
-                    <?php if(isset($sucesso)){
+                    <?php if (isset($sucesso)) {
                         echo $sucesso;
-                    }?>
+                    } ?>
                     <br>
                     <button type="submit" class="btn btn-primary">Alterar</button>
                 </form>

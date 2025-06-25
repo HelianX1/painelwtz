@@ -1,8 +1,8 @@
 <?php
 
-$host = '145.223.79.56';
+$host = '69.62.102.242';
 $user = 'helian';
-$port = '3306';
+$port = '500';
 $password = '12345678';
 
 try {
